@@ -173,6 +173,9 @@
             font-weight: 600;
             margin-bottom: 20px;
             height: 35px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
         }
         
         .typing-text {
@@ -184,6 +187,7 @@
         .cursor {
             display: inline-block;
             width: 3px;
+            height: 26px;
             background-color: var(--cyan);
             animation: blink 0.8s infinite;
         }
@@ -405,7 +409,7 @@
             padding: 15px 30px;
             position: relative;
             width: 50%;
-            opacity: 1; /* Diubah jadi 1 agar aman di mobile */
+            opacity: 1;
             transform: translateY(0);
             transition: all 0.6s ease;
         }
@@ -585,6 +589,7 @@
             100% { transform: translate(20px, -30px) scale(1.05); }
         }
         @keyframes blink {
+            0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
 
@@ -598,6 +603,7 @@
             .hero-content h1 { font-size: 36px; }
             .hero-desc { margin: 0 auto 25px auto; }
             .hero-buttons { justify-content: center; }
+            .typing-container { justify-content: center; }
             
             .about-grid { grid-template-columns: 1fr; }
             
@@ -645,7 +651,6 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <!-- Tombol Download CV -->
         <a href="CV_Hadi_Nugroho.pdf" download class="btn-download">
             <i class="fas fa-download"></i> Download CV
         </a>
@@ -660,7 +665,7 @@
             <h3>HELLO, I'M</h3>
             <h1>HADI NUGROHO</h1>
             <div class="typing-container">
-                <span class="typing-text"></span><span class="cursor">|</span>
+                <span class="typing-text"></span><span class="cursor"></span>
             </div>
             <p class="hero-desc">
                 Mahasiswa Sistem Informasi yang aktif mengembangkan kemampuan di bidang web development, PHP, dan manajemen database. Bersemangat dalam memadukan dunia akademik dan profesional.
@@ -898,9 +903,7 @@
                     Tertarik berkolaborasi, mendiskusikan project, atau terhubung secara profesional? Jangan ragu untuk menghubungi saya.
                 </p>
 
-                <!-- Media Sosial & Kontak Links -->
                 <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                    
                     <!-- WhatsApp -->
                     <a href="https://wa.me/6285117446624" target="_blank" class="glass-panel" style="padding: 12px 20px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; border-radius: 12px;">
                         <i class="fab fa-whatsapp" style="font-size: 22px; color: #25D366;"></i>
@@ -927,7 +930,6 @@
                             <span style="font-size: 13px; font-weight: 600; color: var(--white);">@n.hadiii_</span>
                         </div>
                     </a>
-
                 </div>
             </div>
         </div>
@@ -937,9 +939,9 @@
         <p>&copy; 2026 Hadi Nugroho. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT UNTUK INTERAKTIVITAS (MOBILE MENU & MODAL) -->
+    <!-- JAVASCRIPT: MOBILE MENU, TYPING EFFECT, & MODAL -->
     <script>
-        // Toggle Mobile Menu
+        // 1. Toggle Mobile Menu
         const mobileMenu = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
 
@@ -947,14 +949,55 @@
             navList.classList.toggle('active');
         });
 
-        // Tutup menu saat link diklik (di HP)
+        // Tutup menu otomatis saat link diklik di HP
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
             });
         });
 
-        // Modal / Zoom Gambar Sertifikat
+        // 2. Typing Effect (Efek Ketik Otomatis)
+        const words = ["Mahasiswa Sistem Informasi", "Web Developer Enthusiast", "Database Learner"];
+        let i = 0;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.querySelector('.typing-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.querySelector('.typing-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+
+        // Jalankan efek typing saat halaman dimuat
+        typingEffect();
+
+        // 3. Modal / Zoom Gambar Sertifikat
         function openModal(imgSrc, captionText) {
             const modal = document.getElementById("certModal");
             const modalImg = document.getElementById("modalImg");
@@ -966,7 +1009,6 @@
         }
 
         function closeModal() {
-            document.getElementById("certModal").display = "none";
             document.getElementById("certModal").style.display = "none";
         }
     </script>
