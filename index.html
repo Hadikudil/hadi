@@ -101,6 +101,13 @@
             color: var(--cyan);
         }
 
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--white);
+        }
+
         .btn-download {
             padding: 8px 18px;
             background: linear-gradient(90deg, var(--purple), var(--primary));
@@ -398,11 +405,10 @@
             padding: 15px 30px;
             position: relative;
             width: 50%;
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1; /* Diubah jadi 1 agar aman di mobile */
+            transform: translateY(0);
             transition: all 0.6s ease;
         }
-        .timeline-item.show { opacity: 1; transform: translateY(0); }
         
         .timeline-item:nth-child(odd) { left: 0; text-align: right; }
         .timeline-item:nth-child(even) { left: 50%; text-align: left; }
@@ -429,7 +435,7 @@
         /* === EXPERIENCE & ORGANIZATION SECTION === */
         .exp-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
@@ -582,18 +588,39 @@
             50% { opacity: 0; }
         }
 
-        /* Responsive */
+        /* === RESPONSIVE FIXES (HP & LAPTOP SYNC) === */
         @media (max-width: 992px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+            header { padding: 15px 20px; }
+            header.scrolled { padding: 12px 20px; }
+            
+            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
             .hero-content { margin-bottom: 40px; }
+            .hero-content h1 { font-size: 36px; }
             .hero-desc { margin: 0 auto 25px auto; }
             .hero-buttons { justify-content: center; }
+            
             .about-grid { grid-template-columns: 1fr; }
+            
             .timeline::after { left: 25px; }
             .timeline-item { width: 100%; padding-left: 65px; padding-right: 0; text-align: left !important; }
             .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; }
             .timeline-item::after { left: 17px !important; }
-            nav ul { display: none; }
+            
+            /* Navbar Mobile Menu Style */
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: rgba(5, 8, 22, 0.95);
+                backdrop-filter: blur(15px);
+                padding: 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                text-align: center;
+                gap: 15px;
+            }
+            nav ul.active { display: flex; }
         }
     </style>
 </head>
@@ -604,8 +631,11 @@
         <div class="logo">
             <span>HN</span> Hadi Nugroho
         </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
         <nav>
-            <ul>
+            <ul id="nav-list">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -872,7 +902,7 @@
                 <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
                     
                     <!-- WhatsApp -->
-                    <a href="https://wa.me/6285117446624" target="_blank" class="glass-panel" style="padding: 12px 20px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; border-radius: 12px;" onmouseover="this.style.borderColor='var(--cyan)'; this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)';">
+                    <a href="https://wa.me/6285117446624" target="_blank" class="glass-panel" style="padding: 12px 20px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; border-radius: 12px;">
                         <i class="fab fa-whatsapp" style="font-size: 22px; color: #25D366;"></i>
                         <div style="text-align: left;">
                             <span style="font-size: 11px; color: var(--gray); display: block;">WhatsApp</span>
@@ -881,7 +911,7 @@
                     </a>
 
                     <!-- Email -->
-                    <a href="mailto:hadinugroho047@gmail.com" class="glass-panel" style="padding: 12px 20px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; border-radius: 12px;" onmouseover="this.style.borderColor='var(--cyan)'; this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)';">
+                    <a href="mailto:hadinugroho047@gmail.com" class="glass-panel" style="padding: 12px 20px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; border-radius: 12px;">
                         <i class="fas fa-envelope" style="font-size: 22px; color: var(--primary);"></i>
                         <div style="text-align: left;">
                             <span style="font-size: 11px; color: var(--gray); display: block;">Email</span>
@@ -890,22 +920,15 @@
                     </a>
 
                     <!-- Instagram -->
-                    <a href="https://instagram.com/n.hadiii_" target="_blank" class="glass-panel" style="padding: 12px 20px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; border-radius: 12px;" onmouseover="this.style.borderColor='var(--cyan)'; this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)';">
+                    <a href="https://instagram.com/n.hadiii_" target="_blank" class="glass-panel" style="padding: 12px 20px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; border-radius: 12px;">
                         <i class="fab fa-instagram" style="font-size: 22px; color: #E1306C;"></i>
                         <div style="text-align: left;">
                             <span style="font-size: 11px; color: var(--gray); display: block;">Instagram</span>
-                            <span style="font-size: 13px; font-weight: 600; color: var(--white);">n.hadiii_</span>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--white);">@n.hadiii_</span>
                         </div>
                     </a>
 
                 </div>
-
-                <!-- Domisili Singkat -->
-                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray); font-size: 13px;">
-                    <i class="fas fa-map-marker-alt" style="color: var(--cyan); margin-right: 6px;"></i>
-                    Cisoka, Kabupaten Tangerang, Banten
-                </div>
-
             </div>
         </div>
     </section>
@@ -914,66 +937,24 @@
         <p>&copy; 2026 Hadi Nugroho. All Rights Reserved.</p>
     </footer>
 
-    <!-- SCRIPTS -->
+    <!-- JAVASCRIPT UNTUK INTERAKTIVITAS (MOBILE MENU & MODAL) -->
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('navbar');
-            if(window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        // Toggle Mobile Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
         });
 
-        // Typing Effect Logic
-        const words = [
-            "Information Systems Student", 
-            "Junior PHP Developer", 
-            "Web Development Enthusiast", 
-            "PHP & MySQL Developer", 
-            "Database Enthusiast"
-        ];
-        
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 100;
-        const deletingSpeed = 50;
-        const delayBetweenWords = 2000;
-
-        const typingTextElement = document.querySelector('.typing-text');
-
-        function type() {
-            const currentWord = words[wordIndex];
-            
-            if (isDeleting) {
-                typingTextElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingTextElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeTimeout = isDeleting ? deletingSpeed : typingSpeed;
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                typeTimeout = delayBetweenWords;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeTimeout = 500;
-            }
-
-            setTimeout(type, typeTimeout);
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(type, 1000);
+        // Tutup menu saat link diklik (di HP)
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
         });
 
-        // Modal / Lightbox Image Zoom Functions
+        // Modal / Zoom Gambar Sertifikat
         function openModal(imgSrc, captionText) {
             const modal = document.getElementById("certModal");
             const modalImg = document.getElementById("modalImg");
@@ -985,27 +966,9 @@
         }
 
         function closeModal() {
+            document.getElementById("certModal").display = "none";
             document.getElementById("certModal").style.display = "none";
         }
-
-        // Scroll Animation for Timeline
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            observer.observe(item);
-        });
     </script>
 </body>
 </html>
