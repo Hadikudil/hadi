@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hadi Nugroho | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -34,7 +34,7 @@
             background-color: var(--bg-main);
             color: var(--white);
             overflow-x: hidden;
-            line-height: 1.5;
+            line-height: 1.6;
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -64,7 +64,7 @@
         }
 
         header.scrolled {
-            background: rgba(5, 8, 22, 0.85);
+            background: rgba(5, 8, 22, 0.95);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
             padding: 12px 50px;
@@ -84,6 +84,8 @@
             -webkit-text-fill-color: transparent;
         }
 
+        nav { margin-left: auto; }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -97,9 +99,7 @@
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: var(--cyan);
-        }
+        nav a:hover { color: var(--cyan); }
 
         .menu-toggle {
             display: none;
@@ -108,29 +108,9 @@
             color: var(--white);
         }
 
-        .btn-download {
-            padding: 8px 18px;
-            background: linear-gradient(90deg, var(--purple), var(--primary));
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            color: var(--white);
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(37, 99, 235, 0.4);
-        }
-
         /* === HERO SECTION === */
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 100px 10% 40px 10%;
@@ -149,7 +129,7 @@
         .orb-2 { bottom: 10%; right: 10%; width: 350px; height: 350px; background: var(--primary); }
 
         .hero-content {
-            flex: 1;
+            flex: 1.2;
             z-index: 2;
         }
 
@@ -171,7 +151,7 @@
         .typing-container {
             font-size: 24px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             height: 35px;
             display: flex;
             align-items: center;
@@ -186,24 +166,45 @@
 
         .cursor {
             display: inline-block;
-            width: 3px;
-            height: 26px;
+            width: 3px; height: 26px;
             background-color: var(--cyan);
             animation: blink 0.8s infinite;
         }
 
-        .hero-desc {
-            color: var(--gray);
-            max-width: 480px;
-            margin-bottom: 30px;
-            font-size: 15px;
+        .career-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
-        .hero-buttons { display: flex; gap: 15px; }
+        .career-tags span {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--cyan);
+            font-weight: 500;
+        }
 
-        .btn-primary {
+        .hero-desc {
+            color: var(--gray);
+            max-width: 550px;
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* === BUTTONS === */
+        .hero-buttons { 
+            display: flex; 
+            gap: 15px; 
+            flex-wrap: wrap; 
+        }
+
+        .btn-primary, .btn-glass, .btn-download {
             padding: 10px 24px;
-            background: linear-gradient(90deg, var(--primary), var(--cyan));
             border-radius: 30px;
             font-weight: 600;
             font-size: 14px;
@@ -211,6 +212,14 @@
             border: none;
             color: var(--white);
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--cyan));
         }
 
         .btn-primary:hover {
@@ -219,27 +228,15 @@
         }
 
         .btn-glass {
-            padding: 10px 24px;
             background: transparent;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 14px;
             position: relative;
-            color: var(--white);
-            cursor: pointer;
-            transition: all 0.3s;
         }
         
         .btn-glass::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 30px; 
-            padding: 2px; 
+            content: ""; position: absolute; inset: 0; border-radius: 30px; padding: 2px; 
             background: linear-gradient(90deg, var(--pink), var(--purple)); 
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
+            -webkit-mask-composite: xor; mask-composite: exclude;
         }
 
         .btn-glass:hover {
@@ -248,8 +245,17 @@
             background: rgba(124, 58, 237, 0.1);
         }
 
+        .btn-download {
+            background: linear-gradient(90deg, var(--purple), var(--primary));
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(37, 99, 235, 0.4);
+        }
+
         .hero-image-wrapper {
-            flex: 1;
+            flex: 0.8;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -259,374 +265,182 @@
 
         .image-container {
             position: relative;
-            width: 300px;
-            height: 300px;
+            width: 320px; height: 320px;
             border-radius: 50%;
             padding: 6px;
-            background: linear-gradient(45deg, var(--primary), var(--purple), var(--pink));
+            background: linear-gradient(45deg, var(--primary), var(--purple), var(--cyan));
             box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
             animation: float 6s ease-in-out infinite;
         }
 
         .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            background-color: var(--dark-blue);
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 50%; background-color: var(--dark-blue);
         }
 
         .float-card {
-            position: absolute;
-            padding: 8px 12px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            position: absolute; padding: 8px 15px; border-radius: 12px;
+            font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 8px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             animation: float 5s ease-in-out infinite;
+            white-space: nowrap;
         }
 
-        .card-1 { top: 5%; left: -15%; animation-delay: 0s; }
-        .card-2 { bottom: 10%; right: -10%; animation-delay: 2s; }
-        .card-3 { bottom: -5%; left: 5%; animation-delay: 1s; }
+        .card-1 { top: 5%; left: -20%; animation-delay: 0s; }
+        .card-2 { bottom: 15%; right: -25%; animation-delay: 2s; }
+        .card-3 { bottom: -5%; left: 0; animation-delay: 1s; }
 
         /* === SECTIONS GENERAL === */
-        .section {
-            padding: 60px 10%;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: 32px;
-            margin-bottom: 10px;
-            text-align: center;
-            background: linear-gradient(90deg, var(--white), var(--gray));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-subtitle-desc {
-            text-align: center;
-            color: var(--gray);
-            font-size: 14px;
-            margin-bottom: 35px;
-        }
-
-        .subsection-title {
-            font-size: 18px;
-            color: var(--cyan);
-            margin: 25px 0 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .section { padding: 80px 10%; position: relative; }
+        .section-title { font-size: 32px; margin-bottom: 10px; text-align: center; background: linear-gradient(90deg, var(--white), var(--gray)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-subtitle-desc { text-align: center; color: var(--gray); font-size: 14px; margin-bottom: 45px; }
 
         /* === ABOUT SECTION === */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about-text p {
-            color: var(--gray);
-            margin-bottom: 15px;
-            font-size: 15px;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .stat-box {
-            padding: 18px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
+        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+        .about-text p { color: var(--gray); margin-bottom: 15px; font-size: 15px; line-height: 1.8; }
+        .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .stat-box { padding: 18px; text-align: center; transition: transform 0.3s; }
         .stat-box:hover { transform: translateY(-4px); }
         .stat-box h4 { font-size: 26px; color: var(--cyan); margin-bottom: 4px; }
         .stat-box p { font-size: 13px; color: var(--gray); }
 
         /* === SKILLS SECTION === */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+        .skill-category-title {
+            font-size: 18px; color: var(--cyan); margin: 30px 0 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;
+            display: flex; align-items: center; gap: 10px;
         }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .skill-card { padding: 20px; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; align-items: flex-start; }
+        .skill-card:hover { transform: translateY(-4px); border-color: var(--cyan); }
+        .skill-card i { font-size: 28px; color: var(--cyan); margin-bottom: 15px; }
+        .skill-card h4 { font-size: 16px; margin-bottom: 5px; color: var(--white); }
+        .skill-card p { font-size: 13px; color: var(--gray); }
+        .skill-badge { font-size: 11px; padding: 3px 10px; border-radius: 12px; margin-top: 10px; display: inline-block; font-weight: 500; }
+        .badge-learning { background: rgba(236, 72, 153, 0.15); color: var(--pink); border: 1px solid rgba(236, 72, 153, 0.3); }
+        .badge-basic { background: rgba(124, 58, 237, 0.15); color: var(--purple); border: 1px solid rgba(124, 58, 237, 0.3); }
 
-        .skill-card {
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--cyan);
-        }
-
-        .skill-card i {
-            font-size: 32px;
-            color: var(--cyan);
-            margin-bottom: 12px;
-        }
-
-        .skill-card h4 {
-            font-size: 16px;
-            margin-bottom: 6px;
-            color: var(--white);
-        }
-
-        .skill-card p {
-            font-size: 13px;
-            color: var(--gray);
-        }
-
-        /* === EDUCATION SECTION === */
-        .timeline {
-            position: relative;
-            max-width: 750px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background: var(--dark-blue);
-            top: 0; bottom: 0; left: 50%;
-            margin-left: -1px;
-            border-radius: 10px;
-        }
-
-        .timeline-item {
-            padding: 15px 30px;
-            position: relative;
-            width: 50%;
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
-        }
+        /* === PROJECTS SECTION === */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .project-card { padding: 25px; display: flex; flex-direction: column; transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--cyan); }
         
+        .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 15px; }
+        .project-icon { font-size: 35px; color: var(--cyan); }
+        .project-status { font-size: 10px; padding: 4px 8px; border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--gray); }
+        .project-status.learning { background: rgba(236, 72, 153, 0.15); color: var(--pink); }
+        
+        .project-title { font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 5px; }
+        .project-category { font-size: 12px; color: var(--purple); margin-bottom: 12px; font-weight: 500; }
+        .project-desc { font-size: 14px; color: var(--gray); margin-bottom: 20px; flex-grow: 1; }
+        
+        .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+        .project-tech span { font-size: 11px; background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2); color: var(--cyan); padding: 4px 10px; border-radius: 12px; }
+        
+        .btn-project { padding: 10px; text-align: center; background: transparent; border: 1px solid var(--primary); border-radius: 8px; color: var(--white); cursor: pointer; transition: 0.3s; font-size: 14px; font-weight: 500; }
+        .btn-project:hover { background: var(--primary); }
+
+        /* === EDUCATION & EXPERIENCE === */
+        .timeline { position: relative; max-width: 750px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 3px; background: var(--dark-blue); top: 0; bottom: 0; left: 50%; margin-left: -1px; border-radius: 10px; }
+        .timeline-item { padding: 15px 30px; position: relative; width: 50%; }
         .timeline-item:nth-child(odd) { left: 0; text-align: right; }
         .timeline-item:nth-child(even) { left: 50%; text-align: left; }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 16px; height: 16px;
-            background: var(--bg-main);
-            border: 3px solid var(--primary);
-            border-radius: 50%;
-            top: 50%; transform: translateY(-50%);
-            box-shadow: 0 0 10px var(--primary);
-            z-index: 1;
-        }
-
+        .timeline-item::after { content: ''; position: absolute; width: 16px; height: 16px; background: var(--bg-main); border: 3px solid var(--primary); border-radius: 50%; top: 50%; transform: translateY(-50%); z-index: 1; }
         .timeline-item:nth-child(odd)::after { right: -8px; }
         .timeline-item:nth-child(even)::after { left: -8px; }
-
         .edu-card { padding: 15px 20px; }
         .edu-card h4 { color: var(--cyan); font-size: 16px; margin-bottom: 3px; }
         .edu-card p { color: var(--gray); font-size: 13px; }
 
-        /* === EXPERIENCE & ORGANIZATION SECTION === */
-        .exp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .exp-card {
-            padding: 25px;
-            transition: transform 0.3s;
-        }
+        .exp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .exp-card { padding: 25px; transition: transform 0.3s; }
         .exp-card:hover { transform: translateY(-4px); border-color: rgba(6, 182, 212, 0.4); }
-        
         .exp-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .exp-icon {
-            width: 45px; height: 45px;
-            background: rgba(37, 99, 235, 0.1);
-            border-radius: 10px;
-            display: flex; justify-content: center; align-items: center;
-            color: var(--cyan); font-size: 20px;
-        }
+        .exp-icon { width: 45px; height: 45px; background: rgba(37, 99, 235, 0.1); border-radius: 10px; display: flex; justify-content: center; align-items: center; color: var(--cyan); font-size: 20px; }
         .exp-title h4 { font-size: 18px; color: var(--white); }
         .exp-title span { font-size: 11px; color: var(--pink); padding: 2px 8px; background: rgba(236, 72, 153, 0.1); border-radius: 20px; display: inline-block; margin-top: 4px;}
         .exp-card p { color: var(--gray); font-size: 14px; }
 
-        /* === CERTIFICATE CARDS === */
-        .cert-grid-small {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 18px;
-            margin-bottom: 15px;
-        }
+        /* === CERTIFICATES & MODALS === */
+        .subsection-title { font-size: 18px; color: var(--cyan); margin: 25px 0 15px 0; display: flex; align-items: center; gap: 10px; }
+        .cert-grid-small { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-bottom: 15px; }
+        .cert-small-card { display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; transition: all 0.3s; background: rgba(11, 17, 32, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); cursor: pointer; }
+        .cert-small-card:hover { transform: translateY(-4px); border-color: var(--cyan); box-shadow: 0 8px 20px rgba(6, 182, 212, 0.2); }
+        .cert-small-img { width: 100%; height: 130px; background: var(--dark-blue); overflow: hidden; }
+        .cert-small-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .cert-small-card:hover .cert-small-img img { transform: scale(1.06); }
+        .cert-small-info { padding: 10px 14px; }
+        .cert-small-info h4 { font-size: 13px; color: var(--white); margin-bottom: 2px; }
+        .cert-small-info span { font-size: 11px; color: var(--gray); }
 
-        .cert-small-card {
-            display: flex;
-            flex-direction: column;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: rgba(11, 17, 32, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            cursor: pointer;
-        }
+        .modal { display: none; position: fixed; z-index: 2000; padding-top: 40px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(5, 8, 22, 0.9); backdrop-filter: blur(8px); text-align: center; overflow-y: auto; }
+        .close-modal { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 35px; font-weight: bold; cursor: pointer; transition: 0.3s; z-index: 2001; }
+        .close-modal:hover { color: var(--cyan); }
+        
+        .modal-content-img { margin: auto; display: block; max-width: 85%; max-height: 80vh; border-radius: 12px; border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 40px rgba(0,0,0,0.5); object-fit: contain; }
+        #modal-caption { margin: 12px auto; color: var(--cyan); font-size: 15px; font-weight: 600; }
 
-        .cert-small-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--cyan);
-            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.2);
-        }
+        .project-modal-box { background: var(--bg-sec); margin: 5% auto 10% auto; padding: 35px; max-width: 650px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); text-align: left; color: var(--white); position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .pm-head { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+        .pm-title { font-size: 26px; color: var(--cyan); margin-bottom: 5px; }
+        .pm-cat { font-size: 13px; color: var(--purple); font-weight: 500; }
+        .pm-body p { font-size: 15px; color: var(--gray); margin-bottom: 20px; line-height: 1.7; }
+        .pm-body h4 { font-size: 16px; color: var(--white); margin-bottom: 10px; }
+        .pm-body ul { margin-left: 20px; color: var(--gray); font-size: 14px; margin-bottom: 25px; }
+        .pm-body ul li { margin-bottom: 6px; }
+        .pm-tech-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .pm-tech-list span { font-size: 12px; background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.3); color: var(--cyan); padding: 5px 12px; border-radius: 12px; }
 
-        .cert-small-img {
-            width: 100%;
-            height: 130px;
-            background: var(--dark-blue);
-            overflow: hidden;
-            position: relative;
-        }
+        footer { text-align: center; padding: 25px; color: var(--gray); font-size: 13px; border-top: 1px solid rgba(255, 255, 255, 0.05); background: var(--bg-sec); }
 
-        .cert-small-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
+        /* === ANIMATIONS & RESPONSIVE === */
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(20px, -30px) scale(1.05); } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .cert-small-card:hover .cert-small-img img {
-            transform: scale(1.06);
-        }
-
-        .cert-small-info {
-            padding: 10px 14px;
-        }
-
-        .cert-small-info h4 {
-            font-size: 13px;
-            color: var(--white);
-            margin-bottom: 2px;
-            font-weight: 600;
-        }
-
-        .cert-small-info span {
-            font-size: 11px;
-            color: var(--gray);
-        }
-
-        /* === MODAL / LIGHTBOX ZOOM GAMBAR === */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            padding-top: 40px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(5, 8, 22, 0.9);
-            backdrop-filter: blur(8px);
-            text-align: center;
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 85%;
-            max-height: 80vh;
-            border-radius: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            object-fit: contain;
-        }
-
-        #modal-caption {
-            margin: 12px auto;
-            color: var(--cyan);
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .close-modal:hover {
-            color: var(--cyan);
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: var(--gray);
-            font-size: 13px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: var(--bg-sec);
-        }
-
-        /* === ANIMATIONS === */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        @keyframes floatOrb {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(20px, -30px) scale(1.05); }
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* === RESPONSIVE FIXES (HP & LAPTOP SYNC) === */
         @media (max-width: 992px) {
             header { padding: 15px 20px; }
             header.scrolled { padding: 12px 20px; }
-            
+            nav { margin-left: 0; } /* Reset for mobile */
             .hero { flex-direction: column; text-align: center; padding-top: 120px; }
-            .hero-content { margin-bottom: 40px; }
+            .hero-content { margin-bottom: 50px; }
             .hero-content h1 { font-size: 36px; }
+            .career-tags { justify-content: center; }
             .hero-desc { margin: 0 auto 25px auto; }
-            .hero-buttons { justify-content: center; }
+            
+            /* Responsive Buttons Layout */
+            .hero-buttons { justify-content: center; gap: 12px; }
+
             .typing-container { justify-content: center; }
-            
             .about-grid { grid-template-columns: 1fr; }
-            
             .timeline::after { left: 25px; }
             .timeline-item { width: 100%; padding-left: 65px; padding-right: 0; text-align: left !important; }
             .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; }
             .timeline-item::after { left: 17px !important; }
+            .project-modal-box { width: 90%; margin: 15% auto; padding: 25px; }
             
-            /* Navbar Mobile Menu Style */
             .menu-toggle { display: block; }
             nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%; left: 0; right: 0;
-                background: rgba(5, 8, 22, 0.95);
-                backdrop-filter: blur(15px);
-                padding: 20px;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
-                text-align: center;
-                gap: 15px;
+                display: none; flex-direction: column; position: absolute;
+                top: 100%; left: 0; right: 0; background: rgba(5, 8, 22, 0.95);
+                backdrop-filter: blur(15px); padding: 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; gap: 15px;
             }
             nav ul.active { display: flex; }
+        }
+
+        /* KHUSUS SMARTPHONE KECIL AGAR TOMBOL TERSUSUN KE BAWAH */
+        @media (max-width: 480px) {
+            .hero-buttons { 
+                flex-direction: column; 
+                align-items: center; 
+                gap: 12px; 
+            }
+            .btn-primary, .btn-glass, .btn-download { 
+                width: 100%; 
+                max-width: 280px; /* Lebar maksimal tombol di HP */
+            }
         }
     </style>
 </head>
@@ -645,15 +459,12 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <a href="CV_Hadi_Nugroho.pdf" download class="btn-download">
-            <i class="fas fa-download"></i> Download CV
-        </a>
     </header>
 
     <!-- HERO SECTION -->
@@ -664,15 +475,29 @@
         <div class="hero-content">
             <h3>HELLO, I'M</h3>
             <h1>HADI NUGROHO</h1>
+            
             <div class="typing-container">
                 <span class="typing-text"></span><span class="cursor"></span>
             </div>
+
+            <!-- Career Focus Labels -->
+            <div class="career-tags">
+                <span>Junior Web Developer</span>
+                <span>PHP Developer</span>
+                <span>Junior Programmer</span>
+                <span>Java Web Developer - Learning</span>
+                <span>Database Developer - Learning</span>
+            </div>
+
             <p class="hero-desc">
-                Mahasiswa Sistem Informasi yang aktif mengembangkan kemampuan di bidang web development, PHP, dan manajemen database. Bersemangat dalam memadukan dunia akademik dan profesional.
+                Saya adalah mahasiswa Sistem Informasi yang sedang aktif membangun karier dan mengembangkan kemampuan di bidang software development, khususnya dalam Web Development, Database Management, dan pemrograman Java Web.
             </p>
+            
+            <!-- BUTTONS: Download CV Moved Here -->
             <div class="hero-buttons">
-                <button class="btn-primary" onclick="location.href='#skills'">View Skills</button>
+                <button class="btn-primary" onclick="location.href='#projects'">View My Projects</button>
                 <button class="btn-glass" onclick="location.href='#contact'">Contact Me</button>
+                <a href="CV_Hadi_Nugroho.pdf" download class="btn-download"><i class="fas fa-download"></i> Download CV</a>
             </div>
         </div>
 
@@ -681,13 +506,13 @@
                 <img src="hadi.jpeg" alt="Foto Hadi Nugroho">
                 
                 <div class="glass-panel float-card card-1">
-                    <i class="fab fa-php" style="color: #777BB4; font-size: 18px;"></i> PHP Dev
+                    <i class="fab fa-php" style="color: #777BB4; font-size: 18px;"></i> PHP & MySQL
                 </div>
                 <div class="glass-panel float-card card-2">
-                    <i class="fas fa-database" style="color: #06B6D4; font-size: 18px;"></i> MySQL
+                    <i class="fab fa-java" style="color: #E76F00; font-size: 18px;"></i> Java Web
                 </div>
                 <div class="glass-panel float-card card-3">
-                    <i class="fas fa-badminton" style="color: #EC4899; font-size: 18px;"></i> Bulutangkis
+                    <i class="fas fa-code" style="color: #06B6D4; font-size: 18px;"></i> Web & Desktop Dev
                 </div>
             </div>
         </div>
@@ -696,30 +521,32 @@
     <!-- ABOUT SECTION -->
     <section id="about" class="section">
         <h2 class="section-title">Who Am I?</h2>
-        <p class="section-subtitle-desc">Mengenal lebih dekat latar belakang dan perjalanan saya</p>
+        <p class="section-subtitle-desc">Mengenal lebih dekat latar belakang dan fokus karier saya</p>
         
         <div class="about-grid">
             <div class="about-text glass-panel" style="padding: 30px;">
-                <p><strong>Lahir di Magetan, 6 Juni 2004.</strong></p>
-                <p>Saat ini saya sedang menempuh pendidikan S1 Sistem Informasi di Universitas Insan Pembangunan Indonesia sambil bekerja di PT. Indomarco Prismatama.</p>
-                <p>Pengalaman ganda ini membentuk saya menjadi pribadi yang disiplin dan tangguh. Di waktu luang, saya memiliki hobi bermain <strong>bulutangkis</strong> untuk menjaga kebugaran tubuh dan kesegaran pikiran.</p>
+                <p>Lahir di Magetan, 6 Juni 2004. Saat ini saya sedang menempuh pendidikan S1 Sistem Informasi di Universitas Insan Pembangunan Indonesia sambil bekerja di PT. Indomarco Prismatama.</p>
+                
+                <p>Saya adalah seorang tech enthusiast yang aktif belajar web development. Saya memiliki pengalaman praktis mengembangkan aplikasi menggunakan <strong>PHP, MySQL, HTML, CSS, dan JavaScript</strong>. Di samping itu, saya pernah mempelajari dan membuat aplikasi desktop menggunakan <strong>VB.NET</strong>, serta memiliki pengalaman mengerjakan project hardware sederhana menggunakan Arduino.</p>
+                
+                <p>Saat ini, fokus pengembangan diri saya berlanjut ke ekosistem Java. Saya sedang mempelajari pengembangan aplikasi berbasis <strong>Java Web</strong>. Saya sangat bersemangat untuk terus berkembang menjadi seorang programmer dan web developer yang kompeten dan siap memberikan solusi teknologi yang bermanfaat.</p>
             </div>
             <div class="about-stats">
                 <div class="glass-panel stat-box">
-                    <h4>2004</h4>
-                    <p>Born in Magetan</p>
+                    <h4>IS</h4>
+                    <p>Information System</p>
                 </div>
                 <div class="glass-panel stat-box">
-                    <h4>S1</h4>
-                    <p>Sistem Informasi</p>
+                    <h4>Web</h4>
+                    <p>Development Focus</p>
                 </div>
                 <div class="glass-panel stat-box">
                     <h4>Work</h4>
                     <p>PT. Indomarco</p>
                 </div>
                 <div class="glass-panel stat-box">
-                    <h4>🏸</h4>
-                    <p>Hobi Bulutangkis</p>
+                    <h4>💻</h4>
+                    <p>Programming Enthusiast</p>
                 </div>
             </div>
         </div>
@@ -728,28 +555,168 @@
     <!-- SKILLS SECTION -->
     <section id="skills" class="section">
         <h2 class="section-title">Keahlian & Teknologi</h2>
-        <p class="section-subtitle-desc">Teknologi dan bidang yang sedang saya pelajari serta kuasai</p>
+        <p class="section-subtitle-desc">Teknologi yang saya kuasai dan yang sedang saya pelajari secara aktif</p>
         
+        <!-- Web Development -->
+        <div class="skill-category-title"><i class="fas fa-laptop-code"></i> Web Development</div>
         <div class="skills-grid">
             <div class="glass-panel skill-card">
                 <i class="fab fa-php"></i>
-                <h4>PHP Programming</h4>
-                <p>Pengembangan logika backend dan aplikasi berbasis web.</p>
-            </div>
-            <div class="glass-panel skill-card">
-                <i class="fas fa-database" style="color: var(--cyan);"></i>
-                <h4>MySQL & Database</h4>
-                <p>Perancangan struktur tabel, relasi, dan pengelolaan data.</p>
+                <div>
+                    <h4>PHP</h4>
+                    <p>Pengembangan logika backend dan sistem dinamis.</p>
+                </div>
             </div>
             <div class="glass-panel skill-card">
                 <i class="fab fa-html5" style="color: #E34F26;"></i>
-                <h4>HTML5 & CSS3</h4>
-                <p>Membangun antarmuka web modern, responsif, dan rapi.</p>
+                <div>
+                    <h4>HTML5</h4>
+                    <p>Membangun struktur antarmuka web modern.</p>
+                </div>
+            </div>
+            <div class="glass-panel skill-card">
+                <i class="fab fa-css3-alt" style="color: #1572B6;"></i>
+                <div>
+                    <h4>CSS3</h4>
+                    <p>Styling responsif dan desain UI/UX interaktif.</p>
+                </div>
             </div>
             <div class="glass-panel skill-card">
                 <i class="fab fa-js" style="color: #F7DF1E;"></i>
-                <h4>JavaScript</h4>
-                <p>Menambahkan interaktivitas dan fungsionalitas dinamis pada web.</p>
+                <div>
+                    <h4>JavaScript</h4>
+                    <p>Fungsionalitas dinamis dan DOM manipulation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Database -->
+        <div class="skill-category-title"><i class="fas fa-database"></i> Database</div>
+        <div class="skills-grid">
+            <div class="glass-panel skill-card">
+                <i class="fas fa-server" style="color: var(--cyan);"></i>
+                <div>
+                    <h4>MySQL</h4>
+                    <p>Perancangan struktur tabel, relasi (RDBMS).</p>
+                </div>
+            </div>
+            <div class="glass-panel skill-card">
+                <i class="fas fa-project-diagram" style="color: var(--purple);"></i>
+                <div>
+                    <h4>Database Management</h4>
+                    <p>Pengelolaan data, query, dan integrasi backend.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Programming -->
+        <div class="skill-category-title"><i class="fas fa-code"></i> Programming (Desktop & Others)</div>
+        <div class="skills-grid">
+            <div class="glass-panel skill-card">
+                <i class="fab fa-java" style="color: #E76F00;"></i>
+                <div>
+                    <h4>Java</h4>
+                    <p>Pemrograman berorientasi objek (OOP).</p>
+                </div>
+            </div>
+            <div class="glass-panel skill-card">
+                <i class="fas fa-globe" style="color: #E76F00;"></i>
+                <div>
+                    <h4>Java Web</h4>
+                    <p>Pengembangan aplikasi web berbasis Java.</p>
+                    <span class="skill-badge badge-learning">Currently Learning</span>
+                </div>
+            </div>
+            <div class="glass-panel skill-card">
+                <i class="fab fa-windows" style="color: #0078D4;"></i>
+                <div>
+                    <h4>VB.NET</h4>
+                    <p>Pengembangan aplikasi desktop Windows.</p>
+                    <span class="skill-badge badge-basic">Previously Learned / Basic Experience</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools / Development -->
+        <div class="skill-category-title"><i class="fas fa-tools"></i> Tools / Development Environment</div>
+        <div class="skills-grid">
+            <div class="glass-panel skill-card">
+                <i class="fas fa-cube" style="color: #FB503B;"></i>
+                <div>
+                    <h4>XAMPP & phpMyAdmin</h4>
+                    <p>Local server dan tools administrasi database.</p>
+                </div>
+            </div>
+            <div class="glass-panel skill-card">
+                <i class="fas fa-code-branch" style="color: #5C2D91;"></i>
+                <div>
+                    <h4>NetBeans & Visual Studio</h4>
+                    <p>IDE untuk pengembangan Java dan VB.NET.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle-desc">Kumpulan project programming yang telah saya buat dan yang sedang saya kembangkan</p>
+        
+        <div class="project-grid">
+            <div class="glass-panel project-card">
+                <div class="project-header">
+                    <i class="fas fa-shopping-cart project-icon"></i>
+                    <span class="project-status">Completed</span>
+                </div>
+                <h4 class="project-title">GovinMart POS</h4>
+                <p class="project-category">Web Development / PHP & MySQL</p>
+                <p class="project-desc">Aplikasi Point of Sale (POS) berbasis web untuk mengelola transaksi, data barang, keanggotaan, dan pelaporan stok secara efisien.</p>
+                <div class="project-tech">
+                    <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Chart.js</span>
+                </div>
+                <button class="btn-project" onclick="openProjectModal('govin')">View Details</button>
+            </div>
+
+            <div class="glass-panel project-card">
+                <div class="project-header">
+                    <i class="fas fa-traffic-light project-icon"></i>
+                    <span class="project-status">Completed</span>
+                </div>
+                <h4 class="project-title">Traffic Light System</h4>
+                <p class="project-category">Arduino / Hardware Programming</p>
+                <p class="project-desc">Simulasi sistem lampu lalu lintas multi-jalur menggunakan mikrokontroler Arduino untuk memahami logika pengaturan waktu dan I/O.</p>
+                <div class="project-tech">
+                    <span>Arduino</span><span>C/C++</span><span>LED Matrix</span>
+                </div>
+                <button class="btn-project" onclick="openProjectModal('traffic')">View Details</button>
+            </div>
+
+            <div class="glass-panel project-card">
+                <div class="project-header">
+                    <i class="fas fa-desktop project-icon"></i>
+                    <span class="project-status">Previous Experience</span>
+                </div>
+                <h4 class="project-title">VB.NET App</h4>
+                <p class="project-category">Desktop Application</p>
+                <p class="project-desc">Project pembelajaran pembuatan aplikasi desktop dengan form input dan pengelolaan database untuk memahami alur aplikasi native Windows.</p>
+                <div class="project-tech">
+                    <span>VB.NET</span><span>Visual Studio</span><span>MS Access</span>
+                </div>
+                <button class="btn-project" onclick="openProjectModal('vbnet')">View Details</button>
+            </div>
+
+            <div class="glass-panel project-card">
+                <div class="project-header">
+                    <i class="fab fa-java project-icon"></i>
+                    <span class="project-status learning">Currently Learning</span>
+                </div>
+                <h4 class="project-title">Java Web Learning</h4>
+                <p class="project-category">Java Web Development</p>
+                <p class="project-desc">Project eksplorasi dan pembelajaran arsitektur aplikasi web menggunakan teknologi Java, NetBeans, dan integrasi database.</p>
+                <div class="project-tech">
+                    <span>Java</span><span>Java Web</span><span>NetBeans</span>
+                </div>
+                <button class="btn-project" onclick="openProjectModal('javaweb')">View Details</button>
             </div>
         </div>
     </section>
@@ -835,13 +802,10 @@
         <!-- KATEGORI 1 -->
         <h3 class="subsection-title"><i class="fas fa-certificate"></i> Sertifikat Keahlian & Teknis</h3>
         <div class="cert-grid-small">
-            <div class="cert-small-card" onclick="openModal('certificate-1.jpg', 'PHP & MySQL Web Dev')">
-                <div class="cert-small-img">
-                    <img src="certificate-1.jpg" alt="PHP & MySQL Web Dev">
-                </div>
+            <div class="cert-small-card" onclick="openCertModal('certificate-1.jpg', 'PHP & MySQL Web Dev')">
+                <div class="cert-small-img"><img src="certificate-1.jpg" alt="PHP & MySQL Web Dev"></div>
                 <div class="cert-small-info">
-                    <h4>PHP & MySQL Web Dev</h4>
-                    <span>Sertifikat Teknis</span>
+                    <h4>PHP & MySQL Web Dev</h4><span>Sertifikat Teknis</span>
                 </div>
             </div>
         </div>
@@ -849,22 +813,16 @@
         <!-- KATEGORI 2 -->
         <h3 class="subsection-title"><i class="fas fa-users-cog"></i> Sertifikat Organisasi</h3>
         <div class="cert-grid-small">
-            <div class="cert-small-card" onclick="openModal('sertikatkspm.png', 'Organisasi & Kampus')">
-                <div class="cert-small-img">
-                    <img src="sertikatkspm.png" alt="Organisasi & Kampus">
-                </div>
+            <div class="cert-small-card" onclick="openCertModal('sertikatkspm.png', 'Organisasi & Kampus')">
+                <div class="cert-small-img"><img src="sertikatkspm.png" alt="Organisasi & Kampus"></div>
                 <div class="cert-small-info">
-                    <h4>Organisasi & Kampus</h4>
-                    <span>Sertifikat Organisasi</span>
+                    <h4>Organisasi & Kampus</h4><span>Sertifikat Organisasi</span>
                 </div>
             </div>
-            <div class="cert-small-card" onclick="openModal('sertifikat-psht.jpg', 'PSHT Activity')">
-                <div class="cert-small-img">
-                    <img src="sertifikat-psht.jpg" alt="PSHT Activity">
-                </div>
+            <div class="cert-small-card" onclick="openCertModal('sertifikat-psht.jpg', 'PSHT Activity')">
+                <div class="cert-small-img"><img src="sertifikat-psht.jpg" alt="PSHT Activity"></div>
                 <div class="cert-small-info">
-                    <h4>PSHT Activity</h4>
-                    <span>Sertifikat Organisasi</span>
+                    <h4>PSHT Activity</h4><span>Sertifikat Organisasi</span>
                 </div>
             </div>
         </div>
@@ -872,24 +830,14 @@
         <!-- KATEGORI 3 -->
         <h3 class="subsection-title"><i class="fas fa-award"></i> Sertifikat Lainnya & Workshop</h3>
         <div class="cert-grid-small">
-            <div class="cert-small-card" onclick="openModal('certificate-3.jpg', 'Web Developer Workshop')">
-                <div class="cert-small-img">
-                    <img src="certificate-3.jpg" alt="Web Developer Workshop">
-                </div>
+            <div class="cert-small-card" onclick="openCertModal('certificate-3.jpg', 'Web Developer Workshop')">
+                <div class="cert-small-img"><img src="certificate-3.jpg" alt="Web Developer Workshop"></div>
                 <div class="cert-small-info">
-                    <h4>Web Developer Workshop</h4>
-                    <span>Workshop / Lainnya</span>
+                    <h4>Web Developer Workshop</h4><span>Workshop / Lainnya</span>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- MODAL / POPUP ZOOM GAMBAR -->
-    <div id="certModal" class="modal" onclick="closeModal()">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg">
-        <div id="modal-caption"></div>
-    </div>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="section">
@@ -931,6 +879,11 @@
                         </div>
                     </a>
                 </div>
+                
+                <!-- Extra Download CV Button di Contact Section -->
+                <div style="margin-top: 35px;">
+                    <a href="CV_Hadi_Nugroho.pdf" download class="btn-download" style="display: inline-flex;"><i class="fas fa-download"></i> Unduh CV Saya</a>
+                </div>
             </div>
         </div>
     </section>
@@ -939,27 +892,56 @@
         <p>&copy; 2026 Hadi Nugroho. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT: MOBILE MENU, TYPING EFFECT, & MODAL -->
+    <!-- MODAL POPUPS -->
+    <div id="certModal" class="modal" onclick="closeCertModal(event)">
+        <span class="close-modal" onclick="closeCertModal(event)">&times;</span>
+        <img class="modal-content-img" id="modalImg">
+        <div id="modal-caption"></div>
+    </div>
+
+    <div id="projectModal" class="modal" onclick="closeProjectModal(event)">
+        <div class="project-modal-box" onclick="event.stopPropagation()">
+            <span class="close-modal" style="top: 15px; right: 25px;" onclick="closeProjectModal(event)">&times;</span>
+            <div class="pm-head">
+                <h3 class="pm-title" id="pm-title">Project Title</h3>
+                <span class="pm-cat" id="pm-cat">Category</span>
+            </div>
+            <div class="pm-body">
+                <p id="pm-desc">Deskripsi lengkap project...</p>
+                <h4>Fitur Utama:</h4>
+                <ul id="pm-features"></ul>
+                <h4>Teknologi & Tools:</h4>
+                <div class="pm-tech-list" id="pm-tech"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
     <script>
-        // 1. Toggle Mobile Menu
+        // Navbar Scroll & Mobile Menu
+        const header = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
         const mobileMenu = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
-
-        mobileMenu.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
-
-        // Tutup menu otomatis saat link diklik di HP
+        mobileMenu.addEventListener('click', () => { navList.classList.toggle('active'); });
         document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-            });
+            link.addEventListener('click', () => { navList.classList.remove('active'); });
         });
 
-        // 2. Typing Effect (Efek Ketik Otomatis)
-        const words = ["Mahasiswa Sistem Informasi", "Web Developer Enthusiast", "Database Learner"];
+        // Typing Effect
+        const words = [
+            "Mahasiswa Sistem Informasi", 
+            "Web Developer Enthusiast", 
+            "PHP & MySQL Developer", 
+            "Java Web Learner", 
+            "Database Learner", 
+            "Programmer Enthusiast"
+        ];
         let i = 0;
-
         function typingEffect() {
             let word = words[i].split("");
             var loopTyping = function() {
@@ -969,11 +951,10 @@
                     setTimeout(deletingEffect, 2000);
                     return;
                 }
-                setTimeout(loopTyping, 100);
+                setTimeout(loopTyping, 80);
             };
             loopTyping();
         }
-
         function deletingEffect() {
             let word = words[i].split("");
             var loopDeleting = function() {
@@ -981,35 +962,70 @@
                     word.pop();
                     document.querySelector('.typing-text').innerHTML = word.join("");
                 } else {
-                    if (words.length > (i + 1)) {
-                        i++;
-                    } else {
-                        i = 0;
-                    }
+                    if (words.length > (i + 1)) i++; else i = 0;
                     setTimeout(typingEffect, 500);
                     return;
                 }
-                setTimeout(loopDeleting, 50);
+                setTimeout(loopDeleting, 40);
             };
             loopDeleting();
         }
-
-        // Jalankan efek typing saat halaman dimuat
         typingEffect();
 
-        // 3. Modal / Zoom Gambar Sertifikat
-        function openModal(imgSrc, captionText) {
+        // Modal Functions
+        function openCertModal(imgSrc, captionText) {
             const modal = document.getElementById("certModal");
-            const modalImg = document.getElementById("modalImg");
-            const caption = document.getElementById("modal-caption");
-            
+            document.getElementById("modalImg").src = imgSrc;
+            document.getElementById("modal-caption").innerHTML = captionText;
             modal.style.display = "block";
-            modalImg.src = imgSrc;
-            caption.innerHTML = captionText;
+        }
+        function closeCertModal(e) {
+            if(e.target.id === "certModal" || e.target.className === "close-modal") {
+                document.getElementById("certModal").style.display = "none";
+            }
         }
 
-        function closeModal() {
-            document.getElementById("certModal").style.display = "none";
+        const projectsData = {
+            'govin': {
+                title: 'GovinMart POS', category: 'Web Development / PHP & MySQL',
+                desc: 'Project aplikasi Point of Sale (POS) berbasis web yang saya kembangkan menggunakan PHP dan MySQL. Project ini dirancang untuk membantu kemudahan proses transaksi di kasir, manajemen inventaris, dan pembuatan laporan harian.',
+                features: ['Dashboard statistik dan grafik', 'Modul Transaksi Kasir', 'Manajemen Data Barang', 'Manajemen Data Anggota', 'Laporan Harian', 'Informasi & Peringatan Stok Barang'],
+                tech: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Chart.js']
+            },
+            'traffic': {
+                title: 'Traffic Light System', category: 'Arduino / Hardware Programming',
+                desc: 'Project simulasi sistem lampu lalu lintas persimpangan jalan menggunakan mikrokontroler Arduino. Project ini dibuat sebagai sarana untuk memahami logika pemrograman prosedural, pengaturan delay waktu, pengkondisian I/O, serta pengendalian LED secara terstruktur.',
+                features: ['Simulasi Lampu Merah, Kuning, Hijau', 'Pengaturan urutan pergantian lampu secara akurat', 'Multiple lane (multi-jalur) traffic light', 'Sistem Timer dengan display'],
+                tech: ['Arduino', 'C/C++', 'LED Components', 'TM1637 Display Module']
+            },
+            'vbnet': {
+                title: 'VB.NET Desktop Application', category: 'Desktop Application (Learning Experience)',
+                desc: 'Project pembuatan aplikasi desktop native Windows yang saya kerjakan sebagai pengalaman awal dalam memahami pemrograman desktop. Project ini mengajarkan saya konsep dasar form input, event handling, dan integrasi database lokal.',
+                features: ['Sistem Form Input Data', 'Koneksi ke Database Lokal (CRUD dasar)', 'Pengelolaan dan Penampilan Data pada DataGridView', 'Validasi Input Form'],
+                tech: ['VB.NET', 'Visual Studio', 'Microsoft Access / SQL Server Local']
+            },
+            'javaweb': {
+                title: 'Java Web Learning Project', category: 'Java Web Development (Currently Learning)',
+                desc: 'Project eksperimental yang sedang saya kerjakan untuk memahami ekosistem pengembangan aplikasi berbasis web menggunakan bahasa Java. Fokus project ini adalah mempelajari arsitektur aplikasi web Java, manajemen server lokal, dan koneksi ke database.',
+                features: ['Mempelajari struktur MVC pada aplikasi Java', 'Integrasi Database Server', 'Penggunaan JSP/Servlet (Tahap Pemahaman)', 'Manajemen project dengan IDE modern'],
+                tech: ['Java', 'Java Web', 'NetBeans IDE', 'MySQL/Database']
+            }
+        };
+
+        function openProjectModal(projectId) {
+            const data = projectsData[projectId];
+            if(!data) return;
+            document.getElementById('pm-title').innerText = data.title;
+            document.getElementById('pm-cat').innerText = data.category;
+            document.getElementById('pm-desc').innerText = data.desc;
+            document.getElementById('pm-features').innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+            document.getElementById('pm-tech').innerHTML = data.tech.map(t => `<span>${t}</span>`).join('');
+            document.getElementById('projectModal').style.display = 'block';
+        }
+        function closeProjectModal(e) {
+            if(e.target.id === "projectModal" || e.target.className === "close-modal") {
+                document.getElementById('projectModal').style.display = 'none';
+            }
         }
     </script>
 </body>
